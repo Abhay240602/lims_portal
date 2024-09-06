@@ -8,4 +8,3 @@ Welcome to My Project's Documentation
 .. include:: ./installation.rst
 .. include:: ./usage.rst
 
-.. swagger:: openapi-schema.yml
