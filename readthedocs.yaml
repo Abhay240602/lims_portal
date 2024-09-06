@@ -25,6 +25,10 @@ sphinx:
   # builder: "dirhtml"
   # Fail on all warnings to avoid broken references
   # fail_on_warning: true
+# Custom command to specify the output directory
+build:
+  commands:
+    - sphinx-build -T -b html -D language=en . $READTHEDOCS_OUTPUT/html
 
 # Optionally build your docs in additional formats such as PDF and ePub
 # formats:
