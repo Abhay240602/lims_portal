@@ -1,30 +1,22 @@
 # Read the Docs configuration file for Sphinx projects
-# See https://docs.readthedocs.io/en/stable/config-file/v2.html for details
-
 # Required
 version: 2
 
-# Set the OS, Python version and other tools you might need
-build:
-  tools:
-    python: "3.12"
-    # You can also specify other tool versions:
-    # nodejs: "20"
-    # rust: "1.70"
-    # golang: "1.20"
-
+# Python version and other tools you might need
 python:
+  version: 3.12
   install:
     - requirements: requirements.txt
 
-# Build documentation in the "docs/" directory with Sphinx
+# Build documentation in the "source/" directory with Sphinx
 sphinx:
   configuration: source/conf.py
-  # You can configure Sphinx to use a different builder, for instance use the dirhtml builder for simpler URLs
+  # You can configure Sphinx to use a different builder, for instance, use the dirhtml builder for simpler URLs
   # builder: "dirhtml"
   # Fail on all warnings to avoid broken references
   # fail_on_warning: true
-# Custom command to specify the output directory
+
+# Custom build commands
 build:
   commands:
     - sphinx-build -T -b html -D language=en . $READTHEDOCS_OUTPUT/html
@@ -33,10 +25,3 @@ build:
 # formats:
 #   - pdf
 #   - epub
-
-# Optional but recommended, declare the Python requirements required
-# to build your documentation
-# See https://docs.readthedocs.io/en/stable/guides/reproducible-builds.html
-# python:
-#   install:
-#     - requirements: docs/requirements.txt
