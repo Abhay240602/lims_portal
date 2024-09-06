@@ -39,14 +39,9 @@ import os
 import sys
 sys.path.insert(0, os.path.abspath('../'))
 
-# Check if we are running on Read the Docs
-on_rtd = os.environ.get('READTHEDOCS') == 'True'
 
-# If building on Read the Docs, override the output directory
-if on_rtd:
-    html_output = os.environ.get('READTHEDOCS_OUTPUT', '_build')
-else:
-    html_output = '_build'
 
-# Ensure that the output directory is set correctly
-html_output = os.path.join(html_output, 'html')
+
+html_output = os.environ.get('READTHEDOCS_OUTPUT', '_build')
+
+
