@@ -1,517 +1,418 @@
-openapi: 3.0.2
+swagger: "2.0"
 info:
-  title: ""
-  version: ""
+  title: API Documentation for Library
+  description: Library Portal
+  termsOfService: https://www.google.com/policies/terms/
+  contact:
+    email: contact@xyz.local
+  license:
+    name: BSD License
+  version: v1
+host: 127.0.0.1:8000
+schemes:
+  - http
+basePath: /
+consumes:
+  - application/json
+produces:
+  - application/json
+securityDefinitions:
+  Basic:
+    type: basic
+security:
+  - Basic: []
 paths:
-  /api/schema/:
-    get:
-      operationId: listSpectaculars
-      description:
-        "OpenApi3 schema for this API. Format can be selected via content
-        negotiation.
-
-
-        - YAML: application/vnd.oai.openapi
-
-        - JSON: application/vnd.oai.openapi+json"
-      parameters: []
-      responses:
-        "200":
-          content:
-            application/vnd.oai.openapi:
-              schema:
-                type: array
-                items: {}
-            application/yaml:
-              schema:
-                type: array
-                items: {}
-            application/vnd.oai.openapi+json:
-              schema:
-                type: array
-                items: {}
-            application/json:
-              schema:
-                type: array
-                items: {}
-          description: ""
-      tags:
-        - api
   /api/docs/:
     get:
-      operationId: listSpectacularSwaggers
+      operationId: api_docs_list
       description: ""
       parameters: []
       responses:
         "200":
-          content:
-            text/html:
-              schema:
-                type: array
-                items: {}
           description: ""
+      produces: []
       tags:
         - api
+    parameters: []
   /api/redoc/:
     get:
-      operationId: listSpectacularRedocs
+      operationId: api_redoc_list
       description: ""
       parameters: []
       responses:
         "200":
-          content:
-            text/html:
-              schema:
-                type: array
-                items: {}
           description: ""
+      produces: []
       tags:
         - api
-  /readers:
+    parameters: []
+  /api/schema/:
     get:
-      operationId: listReaders
-      description: Retrieve a list of all readers.
+      operationId: api_schema_list
+      summary: OpenApi3 schema for this API. Format can be selected via content negotiation.
+      description: |-
+        - YAML: application/vnd.oai.openapi
+        - JSON: application/vnd.oai.openapi+json
       parameters: []
       responses:
         "200":
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: "#/components/schemas/Reader"
           description: ""
+      produces:
+        - application/vnd.oai.openapi
+        - application/yaml
+        - application/vnd.oai.openapi+json
+        - application/json
       tags:
-        - readers
-    post:
-      operationId: createReader
-      description: "Create a new reader instance.
-
-
-        This endpoint requires authentication. The data for the new reader should
-        be provided in the request body."
-      parameters: []
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/Reader"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/Reader"
-          multipart/form-data:
-            schema:
-              $ref: "#/components/schemas/Reader"
-      responses:
-        "201":
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Reader"
-          description: ""
-      tags:
-        - readers
-  /readers/{id}:
-    get:
-      operationId: retrieveReader
-      description: "API view to retrieve a single reader by their ID.
-
-
-        - GET: Retrieves the details of a specific reader."
-      parameters:
-        - name: id
-          in: path
-          required: true
-          description: A unique integer value identifying this reader.
-          schema:
-            type: string
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Reader"
-          description: ""
-      tags:
-        - readers
-  /books:
-    get:
-      operationId: listBooks
-      description: "API view to retrieve list of books or create a new book.
-
-
-        - GET: Retrieve a list of all books.
-
-        - POST: Create a new book."
-      parameters: []
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: "#/components/schemas/Book"
-          description: ""
-      tags:
-        - books
-    post:
-      operationId: createBook
-      description: "API view to retrieve list of books or create a new book.
-
-
-        - GET: Retrieve a list of all books.
-
-        - POST: Create a new book."
-      parameters: []
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/Book"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/Book"
-          multipart/form-data:
-            schema:
-              $ref: "#/components/schemas/Book"
-      responses:
-        "201":
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Book"
-          description: ""
-      tags:
-        - books
-  /books/{id}:
-    get:
-      operationId: retrieveBook
-      description: "API view to retrieve a single book by its ID.
-
-
-        - GET: Retrieves the details of a specific book."
-      parameters:
-        - name: id
-          in: path
-          required: true
-          description: A unique integer value identifying this book.
-          schema:
-            type: string
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Book"
-          description: ""
-      tags:
-        - books
+        - api
+    parameters: []
   /api/token/:
     post:
-      operationId: createTokenObtainPair
-      description:
-        "Takes a set of user credentials and returns an access and refresh
-        JSON web
-
-        token pair to prove the authentication of those credentials."
-      parameters: []
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/TokenObtainPair"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/TokenObtainPair"
-          multipart/form-data:
-            schema:
-              $ref: "#/components/schemas/TokenObtainPair"
+      operationId: api_token_create
+      description: |-
+        Takes a set of user credentials and returns an access and refresh JSON web
+        token pair to prove the authentication of those credentials.
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/TokenObtainPair"
       responses:
         "201":
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/TokenObtainPair"
           description: ""
+          schema:
+            $ref: "#/definitions/TokenObtainPair"
       tags:
         - api
+    parameters: []
   /api/token/refresh/:
     post:
-      operationId: createTokenRefresh
-      description:
-        "Takes a refresh type JSON web token and returns an access type
-        JSON web
-
-        token if the refresh token is valid."
-      parameters: []
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/TokenRefresh"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/TokenRefresh"
-          multipart/form-data:
-            schema:
-              $ref: "#/components/schemas/TokenRefresh"
+      operationId: api_token_refresh_create
+      description: |-
+        Takes a refresh type JSON web token and returns an access type JSON web
+        token if the refresh token is valid.
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/TokenRefresh"
       responses:
         "201":
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/TokenRefresh"
           description: ""
+          schema:
+            $ref: "#/definitions/TokenRefresh"
       tags:
         - api
-  /readers/{id}/update:
-    put:
-      operationId: updateReader
-      description: "API view to update a reader's information.
-
-
-        - PUT: Updates all fields of a specific reader.
-
-        - PATCH: Partially updates some fields of a specific reader."
-      parameters:
-        - name: id
-          in: path
-          required: true
-          description: A unique integer value identifying this reader.
-          schema:
-            type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/Reader"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/Reader"
-          multipart/form-data:
-            schema:
-              $ref: "#/components/schemas/Reader"
+    parameters: []
+  /books:
+    get:
+      operationId: books_list
+      description: Retrieve resource(s)
+      parameters: []
       responses:
         "200":
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Reader"
-          description: ""
-      tags:
-        - readers
-    patch:
-      operationId: partialUpdateReader
-      description: "API view to update a reader's information.
-
-
-        - PUT: Updates all fields of a specific reader.
-
-        - PATCH: Partially updates some fields of a specific reader."
-      parameters:
-        - name: id
-          in: path
-          required: true
-          description: A unique integer value identifying this reader.
-          schema:
-            type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/Reader"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/Reader"
-          multipart/form-data:
-            schema:
-              $ref: "#/components/schemas/Reader"
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Reader"
-          description: ""
-      tags:
-        - readers
-  /books/{id}/update:
-    put:
-      operationId: updateBook
-      description: "API view to update a book's information.
-
-
-        - PUT: Updates all fields of a specific book.
-
-        - PATCH: Partially updates some fields of a specific book."
-      parameters:
-        - name: id
-          in: path
-          required: true
-          description: A unique integer value identifying this book.
-          schema:
-            type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/Book"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/Book"
-          multipart/form-data:
-            schema:
-              $ref: "#/components/schemas/Book"
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Book"
-          description: ""
+          description: Successful Response
       tags:
         - books
-    patch:
-      operationId: partialUpdateBook
-      description: "API view to update a book's information.
-
-
-        - PUT: Updates all fields of a specific book.
-
-        - PATCH: Partially updates some fields of a specific book."
+    post:
+      operationId: books_create
+      description: Create a new reader with provided details.
       parameters:
-        - name: id
-          in: path
+        - name: data
+          in: body
           required: true
-          description: A unique integer value identifying this book.
           schema:
-            type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/Book"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/Book"
-          multipart/form-data:
-            schema:
-              $ref: "#/components/schemas/Book"
+            required:
+              - reference_id
+              - reader_name
+              - reader_contact
+              - reader_address
+            type: object
+            properties:
+              reference_id:
+                description: Reference ID of the reader
+                type: integer
+              reader_name:
+                description: Name of the reader
+                type: string
+              reader_contact:
+                description: Contact information of the reader
+                type: string
+              reader_address:
+                description: Address of the reader
+                type: string
+              books:
+                description: List of book IDs associated with the reader
+                type: array
+                items:
+                  type: integer
       responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Book"
-          description: ""
+        "201":
+          description: Reader created successfully
+          schema:
+            type: object
+            properties:
+              reference_id:
+                description: Reference ID of the reader
+                type: integer
+              reader_name:
+                description: Name of the reader
+                type: string
+              reader_contact:
+                description: Contact information of the reader
+                type: string
+              reader_address:
+                description: Address of the reader
+                type: string
+              books:
+                description: List of book IDs associated with the reader
+                type: array
+                items:
+                  type: integer
+        "400":
+          description: Bad Request
       tags:
         - books
-  /readers/{id}/delete:
-    delete:
-      operationId: destroyReader
-      description: Deletes a reader instance.
-      parameters:
-        - name: id
-          in: path
-          required: true
-          description: A unique integer value identifying this reader.
-          schema:
-            type: string
+    parameters: []
+  /books/{id}:
+    get:
+      operationId: books_read
+      description: Retrieve resource(s)
+      parameters: []
       responses:
-        "204":
-          description: ""
+        "200":
+          description: Successful Response
       tags:
-        - readers
+        - books
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this book.
+        required: true
+        type: integer
   /books/{id}/delete:
     delete:
-      operationId: destroyBook
-      description: Deletes a reader instance.
-      parameters:
-        - name: id
-          in: path
-          required: true
-          description: A unique integer value identifying this book.
-          schema:
-            type: string
+      operationId: books_delete_delete
+      description: Delete a resource
+      parameters: []
       responses:
         "204":
-          description: ""
+          description: Resource deleted successfully
       tags:
         - books
-components:
-  schemas:
-    Reader:
-      type: object
-      properties:
-        reference_id:
-          type: integer
-          maximum: 9223372036854775807
-          minimum: -9223372036854775808
-          format: int64
-        reader_name:
-          type: string
-          maxLength: 200
-        reader_contact:
-          type: string
-          maxLength: 200
-        reader_address:
-          type: string
-        books:
-          type: array
-          items:
-            type: integer
-      required:
-        - reference_id
-        - reader_name
-        - reader_contact
-        - reader_address
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this book.
+        required: true
+        type: integer
+  /books/{id}/update:
+    put:
+      operationId: books_update_update
+      description: Update a resource completely
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            description: Request body for updating a resource
+            type: object
+            additionalProperties: true
+      responses:
+        "200":
+          description: Resource updated successfully
+      tags:
         - books
-    Book:
-      type: object
-      properties:
-        name:
-          type: string
-          maxLength: 30
-        isbn:
-          type: integer
-          maximum: 9223372036854775807
-          format: int64
-          minimum: 0
-        author:
-          type: string
-          maxLength: 40
-        category:
-          type: string
-          maxLength: 30
-        readers:
-          type: array
-          items:
-            type: integer
-      required:
-        - name
-        - isbn
-        - author
+    patch:
+      operationId: books_update_partial_update
+      description: Partially update a resource
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            description: Request body for partially updating a resource
+            type: object
+            additionalProperties: true
+      responses:
+        "200":
+          description: Resource updated successfully
+      tags:
+        - books
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this book.
+        required: true
+        type: integer
+  /readers:
+    get:
+      operationId: readers_list
+      description: Retrieve resource(s)
+      parameters: []
+      responses:
+        "200":
+          description: Successful Response
+      tags:
         - readers
-    TokenObtainPair:
-      type: object
-      properties:
-        username:
-          type: string
-          writeOnly: true
-        password:
-          type: string
-          writeOnly: true
-      required:
-        - username
-        - password
-    TokenRefresh:
-      type: object
-      properties:
-        refresh:
-          type: string
-        access:
-          type: string
-          readOnly: true
-      required:
-        - refresh
+    post:
+      operationId: readers_create
+      description: Create a new reader with provided details.
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            required:
+              - reference_id
+              - reader_name
+              - reader_contact
+              - reader_address
+            type: object
+            properties:
+              reference_id:
+                description: Reference ID of the reader
+                type: integer
+              reader_name:
+                description: Name of the reader
+                type: string
+              reader_contact:
+                description: Contact information of the reader
+                type: string
+              reader_address:
+                description: Address of the reader
+                type: string
+              books:
+                description: List of book IDs associated with the reader
+                type: array
+                items:
+                  type: integer
+      responses:
+        "201":
+          description: Reader created successfully
+          schema:
+            type: object
+            properties:
+              reference_id:
+                description: Reference ID of the reader
+                type: integer
+              reader_name:
+                description: Name of the reader
+                type: string
+              reader_contact:
+                description: Contact information of the reader
+                type: string
+              reader_address:
+                description: Address of the reader
+                type: string
+              books:
+                description: List of book IDs associated with the reader
+                type: array
+                items:
+                  type: integer
+        "400":
+          description: Bad Request
+      tags:
+        - readers
+    parameters: []
+  /readers/{id}:
+    get:
+      operationId: readers_read
+      description: Retrieve resource(s)
+      parameters: []
+      responses:
+        "200":
+          description: Successful Response
+      tags:
+        - readers
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this reader.
+        required: true
+        type: integer
+  /readers/{id}/delete:
+    delete:
+      operationId: readers_delete_delete
+      description: Delete a resource
+      parameters: []
+      responses:
+        "204":
+          description: Resource deleted successfully
+      tags:
+        - readers
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this reader.
+        required: true
+        type: integer
+  /readers/{id}/update:
+    put:
+      operationId: readers_update_update
+      description: Update a resource completely
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            description: Request body for updating a resource
+            type: object
+            additionalProperties: true
+      responses:
+        "200":
+          description: Resource updated successfully
+      tags:
+        - readers
+    patch:
+      operationId: readers_update_partial_update
+      description: Partially update a resource
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            description: Request body for partially updating a resource
+            type: object
+            additionalProperties: true
+      responses:
+        "200":
+          description: Resource updated successfully
+      tags:
+        - readers
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this reader.
+        required: true
+        type: integer
+definitions:
+  TokenObtainPair:
+    required:
+      - username
+      - password
+    type: object
+    properties:
+      username:
+        title: Username
+        type: string
+        minLength: 1
+      password:
+        title: Password
+        type: string
+        minLength: 1
+  TokenRefresh:
+    required:
+      - refresh
+    type: object
+    properties:
+      refresh:
+        title: Refresh
+        type: string
+        minLength: 1
+      access:
+        title: Access
+        type: string
+        readOnly: true
+        minLength: 1
