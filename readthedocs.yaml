@@ -15,7 +15,6 @@ build:
     # golang: "1.20"
 
 python:
-  version: 3.11
   install:
     - requirements: requirements.txt
 
