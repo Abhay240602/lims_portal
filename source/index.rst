@@ -7,4 +7,5 @@ Welcome to My Project's Documentation
 
 .. include:: ./installation.rst
 .. include:: ./introduction.rst
+.. include:: ./api_reference.rst
 
