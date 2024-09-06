@@ -2,9 +2,13 @@
 # Required
 version: 2
 
+build:
+  os: ubuntu-22.04 
+  python: "3.12" # Add this line
+  commands:
+    - sphinx-build -T -b html -D language=en . $READTHEDOCS_OUTPUT/html
 # Python version and other tools you might need
 python:
-  version: "3.12"
   install:
     - requirements: requirements.txt
 
@@ -17,10 +21,7 @@ sphinx:
   # fail_on_warning: true
 
 # Custom build commands
-build:
-  os: ubuntu-22.04  # Add this line
-  commands:
-    - sphinx-build -T -b html -D language=en . $READTHEDOCS_OUTPUT/html
+
 
 # Optionally build your docs in additional formats such as PDF and ePub
 # formats:
