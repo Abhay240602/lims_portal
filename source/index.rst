@@ -6,5 +6,5 @@ Welcome to My Project's Documentation
    :caption: Contents:
 
 .. include:: ./installation.rst
-.. include:: ./usage.rst
+.. include:: ./introduction.rst
 
