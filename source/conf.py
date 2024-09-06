@@ -15,7 +15,6 @@ release = '1.1'
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
 extensions = [
-    'sphinxcontrib.swagger',
     'sphinx.ext.autodoc',
     'sphinx.ext.viewcode',
     'sphinxcontrib.openapi',
