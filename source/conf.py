@@ -17,7 +17,6 @@ release = '1.1'
 extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.viewcode',
-    'sphinxcontrib.openapi',
     'sphinx.ext.napoleon',  
 ]
 
