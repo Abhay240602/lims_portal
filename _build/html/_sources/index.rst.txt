@@ -1,0 +1,11 @@
+Welcome to My Project's Documentation
+=====================================
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
+.. include:: ./installation.rst
+.. include:: ./usage.rst
+
+.. swagger:: openapi-schema.yml
