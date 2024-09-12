@@ -1,4 +1,4 @@
 API Reference
 =============
 
-.. openapi:: ./../openapi-schema.yml
+.. openapi:: http://127.0.0.1:8000/swagger.json
