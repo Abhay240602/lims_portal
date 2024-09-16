@@ -8,9 +8,7 @@ Welcome to My Project's Documentation
 .. include:: ./installation.rst
 .. include:: ./introduction.rst
 .. include:: ./api_reference.rst
-.. automodule:: lims_app.models
-    :members:
-    :undoc-members:
+.. include:: ./models.rst
 .. automodule:: lims_app.views
     :members:
     :undoc-members:
