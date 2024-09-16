@@ -11,4 +11,7 @@ Welcome to My Project's Documentation
 .. automodule:: lims_app.models
     :members:
     :undoc-members:
+.. automodule:: lims_app.views
+    :members:
+    :undoc-members:
 
