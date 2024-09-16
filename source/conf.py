@@ -40,6 +40,17 @@ import os
 import sys
 sys.path.insert(0, os.path.abspath('../'))
 
+import os
+import sys
+
+# Add the lims_portal folder to the Python path
+sys.path.insert(0, os.path.abspath('..'))  # Go up one level from sphinx/ to lims_portal/
+os.environ['DJANGO_SETTINGS_MODULE'] = 'lims_portal.settings'  # Use the correct settings file
+
+# Initialize Django
+import django
+django.setup()
+
 
 
 
